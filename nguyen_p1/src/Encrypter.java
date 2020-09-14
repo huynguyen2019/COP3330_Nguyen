@@ -1,33 +1,16 @@
-import java.util.Scanner;
-import java.util.Arrays;
-
 public class Encrypter {
-    // main method
-    public static void main(String[] args) {
-        Scanner inp = new Scanner(System.in);
-        int[] buf = new int[4];
-        while(inp.hasNextInt()) {
-            Encrypter e = new Encrypter(inp);
-            System.out.print("Encrypted String: ");
-            System.out.println(e.encrypt());
-        }
-        inp.close();
-    }
-    private int[] input;
-    public Encrypter(Scanner s) {
-        input = new int[4];
-        for(int i = 0; i < input.length; i++) {
-            input[i] = s.nextInt();
-        }
-    }
 
     //instance method called `encrypt` that accepts a String of 4 digits representing a single integer
-    public String encrypt(){
+    public String encrypt(String input){
         int[] arr = new int[4];
 
+        for(int i = 0; i < 4; i++) {
+            char ch = input.charAt(i);
+            arr[i] = Character.getNumericValue(ch);
+        }
         //Replace each digit with the result of adding 7 to the digit and
         // getting the remainder after dividing the new value by 10.
-        for(int j = 0; j < arr.length; j++){
+        for(int j = 0; j < 4; j++) {
             arr[j] = (arr[j] + 7) % 10;
         }
 
@@ -36,7 +19,19 @@ public class Encrypter {
         swap(arr, 1, 3);
 
         //Return the encrypted integer as a String.
-        String encrypted = Arrays.toString(arr);
+        int returnNum = 0 ;
+
+        for(int e = 0; e < 4; e++){
+            returnNum = returnNum * 10 + arr[e];
+        }
+
+        String encrypted = Integer.toString(returnNum);
+
+        //In case the result starts with leading zero
+        if(arr[0] == 0){
+            encrypted = "0" + encrypted;
+        }
+
         return encrypted;
     }
     public static void swap(int[] arr, int i, int j) {
@@ -45,3 +40,4 @@ public class Encrypter {
         arr[j] = temp;
     }
 }
+
