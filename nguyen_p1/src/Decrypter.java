@@ -10,6 +10,8 @@ public class Decrypter {
         swap(arr, 0, 2);
         swap(arr, 1, 3);
 
+        //how this works: as the encrypt math is inverted, the result for a digit will be negative
+        //if so, plus 10 to get the right number wanted
         for(int j = 0; j < 4; j++) {
             arr[j] = arr[j] - 7;
             if(arr[j] < 0){
