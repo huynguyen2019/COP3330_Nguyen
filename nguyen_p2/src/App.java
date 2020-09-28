@@ -58,8 +58,8 @@ public class App {
         }
     }
     private static void displayBmiInfo(BodyMassIndex bmi) {
-        System.out.printf("BMI Score: %n%.1f%n", bmi.bmiScore());
-        System.out.printf("Category: %n%s%n", bmi.bmiCategory());
+        System.out.printf("BMI Score: %.1f%n", bmi.bmiScore());
+        System.out.printf("Category: %s%n", bmi.bmiCategory());
     }
     private static void displayBmiStatistics(ArrayList<BodyMassIndex> bmiData) {
         double sum = 0;
