@@ -36,5 +36,6 @@ public class Encrypter {
         arr[i] = arr[j];
         arr[j] = temp;
     }
+    
 }
 
