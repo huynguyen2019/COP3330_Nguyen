@@ -2,6 +2,7 @@ public class BodyMassIndex {
     private double height;
     private double weight;
     private double score;
+
     public static final String underweight = "Underweight";
     public static final String normal = "Normal weight";
     public static final String overweight = "Overweight";
@@ -18,12 +19,14 @@ public class BodyMassIndex {
     public BodyMassIndex(double height, double weight) {
         this.height = height;
         this.weight = weight;
+
         this.score = 703 * weight / (height * height);
     }
 
     public double bmiScore(){
         return Math.round(score * 10) / 10.0;
     }
+
     public String bmiCategory(){
         if(score < 18.5){
             return underweight;
