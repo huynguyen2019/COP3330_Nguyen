@@ -28,17 +28,17 @@ public class BodyMassIndex {
     }
 
     public String bmiCategory(){
-        if(score < 18.5){
-            return underweight;
-        }
-        else if(18.5 <= score && score <= 24.9){
+        if(18.5 <= score && score <= 24.9){
             return normal;
         }
         else if(25 <= score && score <= 29.9){
             return overweight;
         }
-        else{
+        else if(score >= 30){
             return obese;
+        }
+        else{
+            return underweight;
         }
     }
 }
